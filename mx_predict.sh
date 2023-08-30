@@ -1,0 +1,1 @@
+python mx_predict.py ./data/train_output/mxnet_ckpt/mn-v2_0.5 35 ./mask.jpg

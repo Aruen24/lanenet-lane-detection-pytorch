@@ -1,0 +1,188 @@
+7767517
+186 199
+Input            data                             0 1 data
+BinaryOp         underscorencnn_0_minusscalar0    1 1 data underscorencnn_0_minusscalar0 0=1 1=1 2=1.275000e+02
+BinaryOp         underscorencnn_1_mulscalar0      1 1 underscorencnn_0_minusscalar0 underscorencnn_1_mulscalar0 0=2 1=1 2=7.812500e-03
+Convolution      conv0_fwd                        1 1 underscorencnn_1_mulscalar0 conv0_fwd 0=8 1=3 11=3 2=1 12=1 3=2 13=2 4=1 14=1 5=0 6=216
+BatchNorm        batchnorm0_fwd                   1 1 conv0_fwd batchnorm0_fwd 0=8
+ReLU             relu0_fwd                        1 1 batchnorm0_fwd relu0_fwd
+Split            splitncnn_0                      1 2 relu0_fwd relu0_fwd_splitncnn_0 relu0_fwd_splitncnn_1
+Convolution      invertedresidual0_conv0_fwd      1 1 relu0_fwd_splitncnn_1 invertedresidual0_conv0_fwd 0=8 1=1 11=1 2=1 12=1 3=1 13=1 4=0 14=0 5=0 6=64
+BatchNorm        invertedresidual0_batchnorm0_fwd 1 1 invertedresidual0_conv0_fwd invertedresidual0_batchnorm0_fwd 0=8
+ReLU             invertedresidual0_relu0_fwd      1 1 invertedresidual0_batchnorm0_fwd invertedresidual0_relu0_fwd
+ConvolutionDepthWise invertedresidual0_conv1_fwd      1 1 invertedresidual0_relu0_fwd invertedresidual0_conv1_fwd 0=8 1=3 11=3 2=1 12=1 3=1 13=1 4=1 14=1 5=0 6=72 7=8
+BatchNorm        invertedresidual0_batchnorm1_fwd 1 1 invertedresidual0_conv1_fwd invertedresidual0_batchnorm1_fwd 0=8
+ReLU             invertedresidual0_relu1_fwd      1 1 invertedresidual0_batchnorm1_fwd invertedresidual0_relu1_fwd
+Convolution      invertedresidual0_conv2_fwd      1 1 invertedresidual0_relu1_fwd invertedresidual0_conv2_fwd 0=4 1=1 11=1 2=1 12=1 3=1 13=1 4=0 14=0 5=0 6=32
+BatchNorm        invertedresidual0_batchnorm2_fwd 1 1 invertedresidual0_conv2_fwd invertedresidual0_batchnorm2_fwd 0=4
+Convolution      invertedresidual0_conv3_fwd      1 1 relu0_fwd_splitncnn_0 invertedresidual0_conv3_fwd 0=4 1=1 11=1 2=1 12=1 3=1 13=1 4=0 14=0 5=0 6=32
+BatchNorm        invertedresidual0_batchnorm3_fwd 1 1 invertedresidual0_conv3_fwd invertedresidual0_batchnorm3_fwd 0=4
+ReLU             invertedresidual0_relu2_fwd      1 1 invertedresidual0_batchnorm3_fwd invertedresidual0_relu2_fwd
+BinaryOp         invertedresidual0_elemwise_add0  2 1 invertedresidual0_batchnorm2_fwd invertedresidual0_relu2_fwd invertedresidual0_elemwise_add0 0=0
+Convolution      invertedresidual1_conv0_fwd      1 1 invertedresidual0_elemwise_add0 invertedresidual1_conv0_fwd 0=24 1=1 11=1 2=1 12=1 3=1 13=1 4=0 14=0 5=0 6=96
+BatchNorm        invertedresidual1_batchnorm0_fwd 1 1 invertedresidual1_conv0_fwd invertedresidual1_batchnorm0_fwd 0=24
+ReLU             invertedresidual1_relu0_fwd      1 1 invertedresidual1_batchnorm0_fwd invertedresidual1_relu0_fwd
+ConvolutionDepthWise invertedresidual1_conv1_fwd      1 1 invertedresidual1_relu0_fwd invertedresidual1_conv1_fwd 0=24 1=3 11=3 2=1 12=1 3=2 13=2 4=1 14=1 5=0 6=216 7=24
+BatchNorm        invertedresidual1_batchnorm1_fwd 1 1 invertedresidual1_conv1_fwd invertedresidual1_batchnorm1_fwd 0=24
+ReLU             invertedresidual1_relu1_fwd      1 1 invertedresidual1_batchnorm1_fwd invertedresidual1_relu1_fwd
+Convolution      invertedresidual1_conv2_fwd      1 1 invertedresidual1_relu1_fwd invertedresidual1_conv2_fwd 0=6 1=1 11=1 2=1 12=1 3=1 13=1 4=0 14=0 5=0 6=144
+BatchNorm        invertedresidual1_batchnorm2_fwd 1 1 invertedresidual1_conv2_fwd invertedresidual1_batchnorm2_fwd 0=6
+Split            splitncnn_1                      1 2 invertedresidual1_batchnorm2_fwd invertedresidual1_batchnorm2_fwd_splitncnn_0 invertedresidual1_batchnorm2_fwd_splitncnn_1
+Convolution      invertedresidual2_conv0_fwd      1 1 invertedresidual1_batchnorm2_fwd_splitncnn_1 invertedresidual2_conv0_fwd 0=24 1=1 11=1 2=1 12=1 3=1 13=1 4=0 14=0 5=0 6=144
+BatchNorm        invertedresidual2_batchnorm0_fwd 1 1 invertedresidual2_conv0_fwd invertedresidual2_batchnorm0_fwd 0=24
+ReLU             invertedresidual2_relu0_fwd      1 1 invertedresidual2_batchnorm0_fwd invertedresidual2_relu0_fwd
+ConvolutionDepthWise invertedresidual2_conv1_fwd      1 1 invertedresidual2_relu0_fwd invertedresidual2_conv1_fwd 0=24 1=3 11=3 2=1 12=1 3=1 13=1 4=1 14=1 5=0 6=216 7=24
+BatchNorm        invertedresidual2_batchnorm1_fwd 1 1 invertedresidual2_conv1_fwd invertedresidual2_batchnorm1_fwd 0=24
+ReLU             invertedresidual2_relu1_fwd      1 1 invertedresidual2_batchnorm1_fwd invertedresidual2_relu1_fwd
+Convolution      invertedresidual2_conv2_fwd      1 1 invertedresidual2_relu1_fwd invertedresidual2_conv2_fwd 0=6 1=1 11=1 2=1 12=1 3=1 13=1 4=0 14=0 5=0 6=144
+BatchNorm        invertedresidual2_batchnorm2_fwd 1 1 invertedresidual2_conv2_fwd invertedresidual2_batchnorm2_fwd 0=6
+BinaryOp         invertedresidual2_elemwise_add0  2 1 invertedresidual2_batchnorm2_fwd invertedresidual1_batchnorm2_fwd_splitncnn_0 invertedresidual2_elemwise_add0 0=0
+Convolution      invertedresidual3_conv0_fwd      1 1 invertedresidual2_elemwise_add0 invertedresidual3_conv0_fwd 0=36 1=1 11=1 2=1 12=1 3=1 13=1 4=0 14=0 5=0 6=216
+BatchNorm        invertedresidual3_batchnorm0_fwd 1 1 invertedresidual3_conv0_fwd invertedresidual3_batchnorm0_fwd 0=36
+ReLU             invertedresidual3_relu0_fwd      1 1 invertedresidual3_batchnorm0_fwd invertedresidual3_relu0_fwd
+ConvolutionDepthWise invertedresidual3_conv1_fwd      1 1 invertedresidual3_relu0_fwd invertedresidual3_conv1_fwd 0=36 1=3 11=3 2=1 12=1 3=2 13=2 4=1 14=1 5=0 6=324 7=36
+BatchNorm        invertedresidual3_batchnorm1_fwd 1 1 invertedresidual3_conv1_fwd invertedresidual3_batchnorm1_fwd 0=36
+ReLU             invertedresidual3_relu1_fwd      1 1 invertedresidual3_batchnorm1_fwd invertedresidual3_relu1_fwd
+Convolution      invertedresidual3_conv2_fwd      1 1 invertedresidual3_relu1_fwd invertedresidual3_conv2_fwd 0=8 1=1 11=1 2=1 12=1 3=1 13=1 4=0 14=0 5=0 6=288
+BatchNorm        invertedresidual3_batchnorm2_fwd 1 1 invertedresidual3_conv2_fwd invertedresidual3_batchnorm2_fwd 0=8
+Split            splitncnn_2                      1 2 invertedresidual3_batchnorm2_fwd invertedresidual3_batchnorm2_fwd_splitncnn_0 invertedresidual3_batchnorm2_fwd_splitncnn_1
+Convolution      invertedresidual4_conv0_fwd      1 1 invertedresidual3_batchnorm2_fwd_splitncnn_1 invertedresidual4_conv0_fwd 0=36 1=1 11=1 2=1 12=1 3=1 13=1 4=0 14=0 5=0 6=288
+BatchNorm        invertedresidual4_batchnorm0_fwd 1 1 invertedresidual4_conv0_fwd invertedresidual4_batchnorm0_fwd 0=36
+ReLU             invertedresidual4_relu0_fwd      1 1 invertedresidual4_batchnorm0_fwd invertedresidual4_relu0_fwd
+ConvolutionDepthWise invertedresidual4_conv1_fwd      1 1 invertedresidual4_relu0_fwd invertedresidual4_conv1_fwd 0=36 1=3 11=3 2=1 12=1 3=1 13=1 4=1 14=1 5=0 6=324 7=36
+BatchNorm        invertedresidual4_batchnorm1_fwd 1 1 invertedresidual4_conv1_fwd invertedresidual4_batchnorm1_fwd 0=36
+ReLU             invertedresidual4_relu1_fwd      1 1 invertedresidual4_batchnorm1_fwd invertedresidual4_relu1_fwd
+Convolution      invertedresidual4_conv2_fwd      1 1 invertedresidual4_relu1_fwd invertedresidual4_conv2_fwd 0=8 1=1 11=1 2=1 12=1 3=1 13=1 4=0 14=0 5=0 6=288
+BatchNorm        invertedresidual4_batchnorm2_fwd 1 1 invertedresidual4_conv2_fwd invertedresidual4_batchnorm2_fwd 0=8
+BinaryOp         invertedresidual4_elemwise_add0  2 1 invertedresidual4_batchnorm2_fwd invertedresidual3_batchnorm2_fwd_splitncnn_0 invertedresidual4_elemwise_add0 0=0
+Split            splitncnn_3                      1 2 invertedresidual4_elemwise_add0 invertedresidual4_elemwise_add0_splitncnn_0 invertedresidual4_elemwise_add0_splitncnn_1
+Convolution      invertedresidual5_conv0_fwd      1 1 invertedresidual4_elemwise_add0_splitncnn_1 invertedresidual5_conv0_fwd 0=36 1=1 11=1 2=1 12=1 3=1 13=1 4=0 14=0 5=0 6=288
+BatchNorm        invertedresidual5_batchnorm0_fwd 1 1 invertedresidual5_conv0_fwd invertedresidual5_batchnorm0_fwd 0=36
+ReLU             invertedresidual5_relu0_fwd      1 1 invertedresidual5_batchnorm0_fwd invertedresidual5_relu0_fwd
+ConvolutionDepthWise invertedresidual5_conv1_fwd      1 1 invertedresidual5_relu0_fwd invertedresidual5_conv1_fwd 0=36 1=3 11=3 2=1 12=1 3=1 13=1 4=1 14=1 5=0 6=324 7=36
+BatchNorm        invertedresidual5_batchnorm1_fwd 1 1 invertedresidual5_conv1_fwd invertedresidual5_batchnorm1_fwd 0=36
+ReLU             invertedresidual5_relu1_fwd      1 1 invertedresidual5_batchnorm1_fwd invertedresidual5_relu1_fwd
+Convolution      invertedresidual5_conv2_fwd      1 1 invertedresidual5_relu1_fwd invertedresidual5_conv2_fwd 0=8 1=1 11=1 2=1 12=1 3=1 13=1 4=0 14=0 5=0 6=288
+BatchNorm        invertedresidual5_batchnorm2_fwd 1 1 invertedresidual5_conv2_fwd invertedresidual5_batchnorm2_fwd 0=8
+BinaryOp         invertedresidual5_elemwise_add0  2 1 invertedresidual5_batchnorm2_fwd invertedresidual4_elemwise_add0_splitncnn_0 invertedresidual5_elemwise_add0 0=0
+Split            splitncnn_4                      1 2 invertedresidual5_elemwise_add0 invertedresidual5_elemwise_add0_splitncnn_0 invertedresidual5_elemwise_add0_splitncnn_1
+Convolution      invertedresidual6_conv0_fwd      1 1 invertedresidual5_elemwise_add0_splitncnn_1 invertedresidual6_conv0_fwd 0=48 1=1 11=1 2=1 12=1 3=1 13=1 4=0 14=0 5=0 6=384
+BatchNorm        invertedresidual6_batchnorm0_fwd 1 1 invertedresidual6_conv0_fwd invertedresidual6_batchnorm0_fwd 0=48
+ReLU             invertedresidual6_relu0_fwd      1 1 invertedresidual6_batchnorm0_fwd invertedresidual6_relu0_fwd
+ConvolutionDepthWise invertedresidual6_conv1_fwd      1 1 invertedresidual6_relu0_fwd invertedresidual6_conv1_fwd 0=48 1=3 11=3 2=1 12=1 3=1 13=1 4=1 14=1 5=0 6=432 7=48
+BatchNorm        invertedresidual6_batchnorm1_fwd 1 1 invertedresidual6_conv1_fwd invertedresidual6_batchnorm1_fwd 0=48
+ReLU             invertedresidual6_relu1_fwd      1 1 invertedresidual6_batchnorm1_fwd invertedresidual6_relu1_fwd
+Convolution      invertedresidual6_conv2_fwd      1 1 invertedresidual6_relu1_fwd invertedresidual6_conv2_fwd 0=16 1=1 11=1 2=1 12=1 3=1 13=1 4=0 14=0 5=0 6=768
+BatchNorm        invertedresidual6_batchnorm2_fwd 1 1 invertedresidual6_conv2_fwd invertedresidual6_batchnorm2_fwd 0=16
+Convolution      invertedresidual6_conv3_fwd      1 1 invertedresidual5_elemwise_add0_splitncnn_0 invertedresidual6_conv3_fwd 0=16 1=1 11=1 2=1 12=1 3=1 13=1 4=0 14=0 5=0 6=128
+BatchNorm        invertedresidual6_batchnorm3_fwd 1 1 invertedresidual6_conv3_fwd invertedresidual6_batchnorm3_fwd 0=16
+ReLU             invertedresidual6_relu2_fwd      1 1 invertedresidual6_batchnorm3_fwd invertedresidual6_relu2_fwd
+BinaryOp         invertedresidual6_elemwise_add0  2 1 invertedresidual6_batchnorm2_fwd invertedresidual6_relu2_fwd invertedresidual6_elemwise_add0 0=0
+Split            splitncnn_5                      1 2 invertedresidual6_elemwise_add0 invertedresidual6_elemwise_add0_splitncnn_0 invertedresidual6_elemwise_add0_splitncnn_1
+Convolution      invertedresidual7_conv0_fwd      1 1 invertedresidual6_elemwise_add0_splitncnn_1 invertedresidual7_conv0_fwd 0=48 1=1 11=1 2=1 12=1 3=1 13=1 4=0 14=0 5=0 6=768
+BatchNorm        invertedresidual7_batchnorm0_fwd 1 1 invertedresidual7_conv0_fwd invertedresidual7_batchnorm0_fwd 0=48
+ReLU             invertedresidual7_relu0_fwd      1 1 invertedresidual7_batchnorm0_fwd invertedresidual7_relu0_fwd
+ConvolutionDepthWise invertedresidual7_conv1_fwd      1 1 invertedresidual7_relu0_fwd invertedresidual7_conv1_fwd 0=48 1=3 11=3 2=1 12=1 3=1 13=1 4=1 14=1 5=0 6=432 7=48
+BatchNorm        invertedresidual7_batchnorm1_fwd 1 1 invertedresidual7_conv1_fwd invertedresidual7_batchnorm1_fwd 0=48
+ReLU             invertedresidual7_relu1_fwd      1 1 invertedresidual7_batchnorm1_fwd invertedresidual7_relu1_fwd
+Convolution      invertedresidual7_conv2_fwd      1 1 invertedresidual7_relu1_fwd invertedresidual7_conv2_fwd 0=16 1=1 11=1 2=1 12=1 3=1 13=1 4=0 14=0 5=0 6=768
+BatchNorm        invertedresidual7_batchnorm2_fwd 1 1 invertedresidual7_conv2_fwd invertedresidual7_batchnorm2_fwd 0=16
+BinaryOp         invertedresidual7_elemwise_add0  2 1 invertedresidual7_batchnorm2_fwd invertedresidual6_elemwise_add0_splitncnn_0 invertedresidual7_elemwise_add0 0=0
+Split            splitncnn_6                      1 2 invertedresidual7_elemwise_add0 invertedresidual7_elemwise_add0_splitncnn_0 invertedresidual7_elemwise_add0_splitncnn_1
+Convolution      invertedresidual8_conv0_fwd      1 1 invertedresidual7_elemwise_add0_splitncnn_1 invertedresidual8_conv0_fwd 0=48 1=1 11=1 2=1 12=1 3=1 13=1 4=0 14=0 5=0 6=768
+BatchNorm        invertedresidual8_batchnorm0_fwd 1 1 invertedresidual8_conv0_fwd invertedresidual8_batchnorm0_fwd 0=48
+ReLU             invertedresidual8_relu0_fwd      1 1 invertedresidual8_batchnorm0_fwd invertedresidual8_relu0_fwd
+ConvolutionDepthWise invertedresidual8_conv1_fwd      1 1 invertedresidual8_relu0_fwd invertedresidual8_conv1_fwd 0=48 1=3 11=3 2=1 12=1 3=1 13=1 4=1 14=1 5=0 6=432 7=48
+BatchNorm        invertedresidual8_batchnorm1_fwd 1 1 invertedresidual8_conv1_fwd invertedresidual8_batchnorm1_fwd 0=48
+ReLU             invertedresidual8_relu1_fwd      1 1 invertedresidual8_batchnorm1_fwd invertedresidual8_relu1_fwd
+Convolution      invertedresidual8_conv2_fwd      1 1 invertedresidual8_relu1_fwd invertedresidual8_conv2_fwd 0=16 1=1 11=1 2=1 12=1 3=1 13=1 4=0 14=0 5=0 6=768
+BatchNorm        invertedresidual8_batchnorm2_fwd 1 1 invertedresidual8_conv2_fwd invertedresidual8_batchnorm2_fwd 0=16
+BinaryOp         invertedresidual8_elemwise_add0  2 1 invertedresidual8_batchnorm2_fwd invertedresidual7_elemwise_add0_splitncnn_0 invertedresidual8_elemwise_add0 0=0
+Split            splitncnn_7                      1 2 invertedresidual8_elemwise_add0 invertedresidual8_elemwise_add0_splitncnn_0 invertedresidual8_elemwise_add0_splitncnn_1
+Convolution      invertedresidual9_conv0_fwd      1 1 invertedresidual8_elemwise_add0_splitncnn_1 invertedresidual9_conv0_fwd 0=48 1=1 11=1 2=1 12=1 3=1 13=1 4=0 14=0 5=0 6=768
+BatchNorm        invertedresidual9_batchnorm0_fwd 1 1 invertedresidual9_conv0_fwd invertedresidual9_batchnorm0_fwd 0=48
+ReLU             invertedresidual9_relu0_fwd      1 1 invertedresidual9_batchnorm0_fwd invertedresidual9_relu0_fwd
+ConvolutionDepthWise invertedresidual9_conv1_fwd      1 1 invertedresidual9_relu0_fwd invertedresidual9_conv1_fwd 0=48 1=3 11=3 2=1 12=1 3=1 13=1 4=1 14=1 5=0 6=432 7=48
+BatchNorm        invertedresidual9_batchnorm1_fwd 1 1 invertedresidual9_conv1_fwd invertedresidual9_batchnorm1_fwd 0=48
+ReLU             invertedresidual9_relu1_fwd      1 1 invertedresidual9_batchnorm1_fwd invertedresidual9_relu1_fwd
+Convolution      invertedresidual9_conv2_fwd      1 1 invertedresidual9_relu1_fwd invertedresidual9_conv2_fwd 0=16 1=1 11=1 2=1 12=1 3=1 13=1 4=0 14=0 5=0 6=768
+BatchNorm        invertedresidual9_batchnorm2_fwd 1 1 invertedresidual9_conv2_fwd invertedresidual9_batchnorm2_fwd 0=16
+BinaryOp         invertedresidual9_elemwise_add0  2 1 invertedresidual9_batchnorm2_fwd invertedresidual8_elemwise_add0_splitncnn_0 invertedresidual9_elemwise_add0 0=0
+Convolution      invertedresidual10_conv0_fwd     1 1 invertedresidual9_elemwise_add0 invertedresidual10_conv0_fwd 0=96 1=1 11=1 2=1 12=1 3=1 13=1 4=0 14=0 5=0 6=1536
+BatchNorm        invertedresidual10_batchnorm0_fwd 1 1 invertedresidual10_conv0_fwd invertedresidual10_batchnorm0_fwd 0=96
+ReLU             invertedresidual10_relu0_fwd     1 1 invertedresidual10_batchnorm0_fwd invertedresidual10_relu0_fwd
+ConvolutionDepthWise invertedresidual10_conv1_fwd     1 1 invertedresidual10_relu0_fwd invertedresidual10_conv1_fwd 0=96 1=3 11=3 2=1 12=1 3=2 13=2 4=1 14=1 5=0 6=864 7=96
+BatchNorm        invertedresidual10_batchnorm1_fwd 1 1 invertedresidual10_conv1_fwd invertedresidual10_batchnorm1_fwd 0=96
+ReLU             invertedresidual10_relu1_fwd     1 1 invertedresidual10_batchnorm1_fwd invertedresidual10_relu1_fwd
+Convolution      invertedresidual10_conv2_fwd     1 1 invertedresidual10_relu1_fwd invertedresidual10_conv2_fwd 0=24 1=1 11=1 2=1 12=1 3=1 13=1 4=0 14=0 5=0 6=2304
+BatchNorm        invertedresidual10_batchnorm2_fwd 1 1 invertedresidual10_conv2_fwd invertedresidual10_batchnorm2_fwd 0=24
+Split            splitncnn_8                      1 2 invertedresidual10_batchnorm2_fwd invertedresidual10_batchnorm2_fwd_splitncnn_0 invertedresidual10_batchnorm2_fwd_splitncnn_1
+Convolution      invertedresidual11_conv0_fwd     1 1 invertedresidual10_batchnorm2_fwd_splitncnn_1 invertedresidual11_conv0_fwd 0=96 1=1 11=1 2=1 12=1 3=1 13=1 4=0 14=0 5=0 6=2304
+BatchNorm        invertedresidual11_batchnorm0_fwd 1 1 invertedresidual11_conv0_fwd invertedresidual11_batchnorm0_fwd 0=96
+ReLU             invertedresidual11_relu0_fwd     1 1 invertedresidual11_batchnorm0_fwd invertedresidual11_relu0_fwd
+ConvolutionDepthWise invertedresidual11_conv1_fwd     1 1 invertedresidual11_relu0_fwd invertedresidual11_conv1_fwd 0=96 1=3 11=3 2=1 12=1 3=1 13=1 4=1 14=1 5=0 6=864 7=96
+BatchNorm        invertedresidual11_batchnorm1_fwd 1 1 invertedresidual11_conv1_fwd invertedresidual11_batchnorm1_fwd 0=96
+ReLU             invertedresidual11_relu1_fwd     1 1 invertedresidual11_batchnorm1_fwd invertedresidual11_relu1_fwd
+Convolution      invertedresidual11_conv2_fwd     1 1 invertedresidual11_relu1_fwd invertedresidual11_conv2_fwd 0=24 1=1 11=1 2=1 12=1 3=1 13=1 4=0 14=0 5=0 6=2304
+BatchNorm        invertedresidual11_batchnorm2_fwd 1 1 invertedresidual11_conv2_fwd invertedresidual11_batchnorm2_fwd 0=24
+BinaryOp         invertedresidual11_elemwise_add0 2 1 invertedresidual11_batchnorm2_fwd invertedresidual10_batchnorm2_fwd_splitncnn_0 invertedresidual11_elemwise_add0 0=0
+Split            splitncnn_9                      1 2 invertedresidual11_elemwise_add0 invertedresidual11_elemwise_add0_splitncnn_0 invertedresidual11_elemwise_add0_splitncnn_1
+Convolution      invertedresidual12_conv0_fwd     1 1 invertedresidual11_elemwise_add0_splitncnn_1 invertedresidual12_conv0_fwd 0=96 1=1 11=1 2=1 12=1 3=1 13=1 4=0 14=0 5=0 6=2304
+BatchNorm        invertedresidual12_batchnorm0_fwd 1 1 invertedresidual12_conv0_fwd invertedresidual12_batchnorm0_fwd 0=96
+ReLU             invertedresidual12_relu0_fwd     1 1 invertedresidual12_batchnorm0_fwd invertedresidual12_relu0_fwd
+ConvolutionDepthWise invertedresidual12_conv1_fwd     1 1 invertedresidual12_relu0_fwd invertedresidual12_conv1_fwd 0=96 1=3 11=3 2=1 12=1 3=1 13=1 4=1 14=1 5=0 6=864 7=96
+BatchNorm        invertedresidual12_batchnorm1_fwd 1 1 invertedresidual12_conv1_fwd invertedresidual12_batchnorm1_fwd 0=96
+ReLU             invertedresidual12_relu1_fwd     1 1 invertedresidual12_batchnorm1_fwd invertedresidual12_relu1_fwd
+Convolution      invertedresidual12_conv2_fwd     1 1 invertedresidual12_relu1_fwd invertedresidual12_conv2_fwd 0=24 1=1 11=1 2=1 12=1 3=1 13=1 4=0 14=0 5=0 6=2304
+BatchNorm        invertedresidual12_batchnorm2_fwd 1 1 invertedresidual12_conv2_fwd invertedresidual12_batchnorm2_fwd 0=24
+BinaryOp         invertedresidual12_elemwise_add0 2 1 invertedresidual12_batchnorm2_fwd invertedresidual11_elemwise_add0_splitncnn_0 invertedresidual12_elemwise_add0 0=0
+Convolution      invertedresidual13_conv0_fwd     1 1 invertedresidual12_elemwise_add0 invertedresidual13_conv0_fwd 0=144 1=1 11=1 2=1 12=1 3=1 13=1 4=0 14=0 5=0 6=3456
+BatchNorm        invertedresidual13_batchnorm0_fwd 1 1 invertedresidual13_conv0_fwd invertedresidual13_batchnorm0_fwd 0=144
+ReLU             invertedresidual13_relu0_fwd     1 1 invertedresidual13_batchnorm0_fwd invertedresidual13_relu0_fwd
+ConvolutionDepthWise invertedresidual13_conv1_fwd     1 1 invertedresidual13_relu0_fwd invertedresidual13_conv1_fwd 0=144 1=3 11=3 2=1 12=1 3=2 13=2 4=1 14=1 5=0 6=1296 7=144
+BatchNorm        invertedresidual13_batchnorm1_fwd 1 1 invertedresidual13_conv1_fwd invertedresidual13_batchnorm1_fwd 0=144
+ReLU             invertedresidual13_relu1_fwd     1 1 invertedresidual13_batchnorm1_fwd invertedresidual13_relu1_fwd
+Convolution      invertedresidual13_conv2_fwd     1 1 invertedresidual13_relu1_fwd invertedresidual13_conv2_fwd 0=40 1=1 11=1 2=1 12=1 3=1 13=1 4=0 14=0 5=0 6=5760
+BatchNorm        invertedresidual13_batchnorm2_fwd 1 1 invertedresidual13_conv2_fwd invertedresidual13_batchnorm2_fwd 0=40
+Split            splitncnn_10                     1 2 invertedresidual13_batchnorm2_fwd invertedresidual13_batchnorm2_fwd_splitncnn_0 invertedresidual13_batchnorm2_fwd_splitncnn_1
+Convolution      invertedresidual14_conv0_fwd     1 1 invertedresidual13_batchnorm2_fwd_splitncnn_1 invertedresidual14_conv0_fwd 0=144 1=1 11=1 2=1 12=1 3=1 13=1 4=0 14=0 5=0 6=5760
+BatchNorm        invertedresidual14_batchnorm0_fwd 1 1 invertedresidual14_conv0_fwd invertedresidual14_batchnorm0_fwd 0=144
+ReLU             invertedresidual14_relu0_fwd     1 1 invertedresidual14_batchnorm0_fwd invertedresidual14_relu0_fwd
+ConvolutionDepthWise invertedresidual14_conv1_fwd     1 1 invertedresidual14_relu0_fwd invertedresidual14_conv1_fwd 0=144 1=3 11=3 2=1 12=1 3=1 13=1 4=1 14=1 5=0 6=1296 7=144
+BatchNorm        invertedresidual14_batchnorm1_fwd 1 1 invertedresidual14_conv1_fwd invertedresidual14_batchnorm1_fwd 0=144
+ReLU             invertedresidual14_relu1_fwd     1 1 invertedresidual14_batchnorm1_fwd invertedresidual14_relu1_fwd
+Convolution      invertedresidual14_conv2_fwd     1 1 invertedresidual14_relu1_fwd invertedresidual14_conv2_fwd 0=40 1=1 11=1 2=1 12=1 3=1 13=1 4=0 14=0 5=0 6=5760
+BatchNorm        invertedresidual14_batchnorm2_fwd 1 1 invertedresidual14_conv2_fwd invertedresidual14_batchnorm2_fwd 0=40
+BinaryOp         invertedresidual14_elemwise_add0 2 1 invertedresidual14_batchnorm2_fwd invertedresidual13_batchnorm2_fwd_splitncnn_0 invertedresidual14_elemwise_add0 0=0
+Split            splitncnn_11                     1 2 invertedresidual14_elemwise_add0 invertedresidual14_elemwise_add0_splitncnn_0 invertedresidual14_elemwise_add0_splitncnn_1
+Convolution      invertedresidual15_conv0_fwd     1 1 invertedresidual14_elemwise_add0_splitncnn_1 invertedresidual15_conv0_fwd 0=144 1=1 11=1 2=1 12=1 3=1 13=1 4=0 14=0 5=0 6=5760
+BatchNorm        invertedresidual15_batchnorm0_fwd 1 1 invertedresidual15_conv0_fwd invertedresidual15_batchnorm0_fwd 0=144
+ReLU             invertedresidual15_relu0_fwd     1 1 invertedresidual15_batchnorm0_fwd invertedresidual15_relu0_fwd
+ConvolutionDepthWise invertedresidual15_conv1_fwd     1 1 invertedresidual15_relu0_fwd invertedresidual15_conv1_fwd 0=144 1=3 11=3 2=1 12=1 3=1 13=1 4=1 14=1 5=0 6=1296 7=144
+BatchNorm        invertedresidual15_batchnorm1_fwd 1 1 invertedresidual15_conv1_fwd invertedresidual15_batchnorm1_fwd 0=144
+ReLU             invertedresidual15_relu1_fwd     1 1 invertedresidual15_batchnorm1_fwd invertedresidual15_relu1_fwd
+Convolution      invertedresidual15_conv2_fwd     1 1 invertedresidual15_relu1_fwd invertedresidual15_conv2_fwd 0=40 1=1 11=1 2=1 12=1 3=1 13=1 4=0 14=0 5=0 6=5760
+BatchNorm        invertedresidual15_batchnorm2_fwd 1 1 invertedresidual15_conv2_fwd invertedresidual15_batchnorm2_fwd 0=40
+BinaryOp         invertedresidual15_elemwise_add0 2 1 invertedresidual15_batchnorm2_fwd invertedresidual14_elemwise_add0_splitncnn_0 invertedresidual15_elemwise_add0 0=0
+Split            splitncnn_12                     1 2 invertedresidual15_elemwise_add0 invertedresidual15_elemwise_add0_splitncnn_0 invertedresidual15_elemwise_add0_splitncnn_1
+Convolution      invertedresidual16_conv0_fwd     1 1 invertedresidual15_elemwise_add0_splitncnn_1 invertedresidual16_conv0_fwd 0=240 1=1 11=1 2=1 12=1 3=1 13=1 4=0 14=0 5=0 6=9600
+BatchNorm        invertedresidual16_batchnorm0_fwd 1 1 invertedresidual16_conv0_fwd invertedresidual16_batchnorm0_fwd 0=240
+ReLU             invertedresidual16_relu0_fwd     1 1 invertedresidual16_batchnorm0_fwd invertedresidual16_relu0_fwd
+ConvolutionDepthWise invertedresidual16_conv1_fwd     1 1 invertedresidual16_relu0_fwd invertedresidual16_conv1_fwd 0=240 1=3 11=3 2=1 12=1 3=1 13=1 4=1 14=1 5=0 6=2160 7=240
+BatchNorm        invertedresidual16_batchnorm1_fwd 1 1 invertedresidual16_conv1_fwd invertedresidual16_batchnorm1_fwd 0=240
+ReLU             invertedresidual16_relu1_fwd     1 1 invertedresidual16_batchnorm1_fwd invertedresidual16_relu1_fwd
+Convolution      invertedresidual16_conv2_fwd     1 1 invertedresidual16_relu1_fwd invertedresidual16_conv2_fwd 0=80 1=1 11=1 2=1 12=1 3=1 13=1 4=0 14=0 5=0 6=19200
+BatchNorm        invertedresidual16_batchnorm2_fwd 1 1 invertedresidual16_conv2_fwd invertedresidual16_batchnorm2_fwd 0=80
+Convolution      invertedresidual16_conv3_fwd     1 1 invertedresidual15_elemwise_add0_splitncnn_0 invertedresidual16_conv3_fwd 0=80 1=1 11=1 2=1 12=1 3=1 13=1 4=0 14=0 5=0 6=3200
+BatchNorm        invertedresidual16_batchnorm3_fwd 1 1 invertedresidual16_conv3_fwd invertedresidual16_batchnorm3_fwd 0=80
+ReLU             invertedresidual16_relu2_fwd     1 1 invertedresidual16_batchnorm3_fwd invertedresidual16_relu2_fwd
+BinaryOp         invertedresidual16_elemwise_add0 2 1 invertedresidual16_batchnorm2_fwd invertedresidual16_relu2_fwd invertedresidual16_elemwise_add0 0=0
+Convolution      mobilenetv20_hybridsequential0_conv0_fwd 1 1 invertedresidual16_elemwise_add0 mobilenetv20_hybridsequential0_conv0_fwd 0=1280 1=1 11=1 2=1 12=1 3=1 13=1 4=0 14=0 5=0 6=102400
+BatchNorm        mobilenetv20_hybridsequential0_batchnorm0_fwd 1 1 mobilenetv20_hybridsequential0_conv0_fwd mobilenetv20_hybridsequential0_batchnorm0_fwd 0=1280
+ReLU             mobilenetv20_hybridsequential0_relu0_fwd 1 1 mobilenetv20_hybridsequential0_batchnorm0_fwd mobilenetv20_hybridsequential0_relu0_fwd
+Pooling          mobilenetv20_hybridsequential0_pool0_fwd 1 1 mobilenetv20_hybridsequential0_relu0_fwd mobilenetv20_hybridsequential0_pool0_fwd 0=1 1=1 11=1 2=1 12=1 3=0 13=0 4=1 5=0 6=0
+Flatten          mobilenetv20_hybridsequential0_flatten0_flatten0 1 1 mobilenetv20_hybridsequential0_pool0_fwd mobilenetv20_hybridsequential0_flatten0_flatten0
+InnerProduct     mobilenetv20_dense0_fwd          1 1 mobilenetv20_hybridsequential0_flatten0_flatten0 mobilenetv20_dense0_fwd 0=512 1=1 2=655360
+InnerProduct     output                           1 1 mobilenetv20_dense0_fwd output 0=2 1=1 2=1024
+Input            softmax_label                    0 1 softmax_label
+Softmax          softmax                          1 1 output softmax 1=1

@@ -1,0 +1,2 @@
+CUDA_VISIBLE_DEVICES='1' python mx_trainer.py --train_data_dir /home/wangyuanwen/data/mxnet_train_recdata_64/mx_train --val_data_dir /home/wangyuanwen/data/mxnet_train_recdata_64/mx_val >/home/wangyuanwen/FaceMaskDetect/mobilenetv2/model.log 2>&1 &
+#python mx_trainer.py /home/wangyuanwen/data/mxnet_train_recdata_64/mx_train --val_data_dir /home/wangyuanwen/data/mxnet_train_recdata_64/mx_val >/home/wangyuanwen/FaceMaskDetect/mobilenetv2/model.log 2>&1 &
